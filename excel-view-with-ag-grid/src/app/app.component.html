@@ -1,0 +1,24 @@
+<!-- AG Grid Angular Component -->
+<ag-grid-angular
+   style="width: 100%; height: 80%"
+   class="ag-theme-alpine"
+   [columnDefs]="columnDefs"
+   [defaultColDef]="defaultColDef"
+   [rowData]="rowData"
+   [rowSelection]="'multiple'"
+   [animateRows]="true"
+   (gridReady)="onGridReady($event)"
+   (cellClicked)="onCellClicked($event)"
+   [animateRows]="true"
+   [pagination]="true"
+   [paginationPageSize]="10"
+   ></ag-grid-angular>
+
+<button (click)="enableForm()" *ngIf="!showForm">+ Add Row</button>
+
+<div *ngIf="showForm">
+  <label>Make: </label><input type="text" [(ngModel)]="makeControl" /> <br/>
+  <label>Model: </label><input type="text" [(ngModel)]="modelControl" /> <br/>
+  <label>Price: </label><input type="number" [(ngModel)]="priceControl" /> <br/>
+  <button (click)="addRow()">Add</button>
+</div>
